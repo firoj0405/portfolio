@@ -1,192 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Firoj Mulla - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Firoj Mulla — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
+  <meta name="description" content="Firoj Mulla — Full-Stack Operations Specialist: eCommerce, MIS, Software QA, AI & Prompt Engineering.">
 </head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body class="bg-gray-50 text-gray-900">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">FM</div>
+        <div>
+          <h1 class="name">Firoj Mulla</h1>
+          <p class="role">Full-Stack Operations Specialist</p>
+        </div>
+      </div>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#expertise">Expertise</a>
+        <a href="#tools">Tools</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- MAIN CONTAINER -->
-<div class="max-w-6xl mx-auto p-6">
-
-  <!-- PROFILE SECTION -->
-  <section class="flex flex-col md:flex-row items-center gap-10 py-10">
-      
-      <!-- LEFT PROFILE IMAGE -->
-      <div class="w-48 h-48 rounded-full overflow-hidden shadow-xl">
-          <img src="profile.jpg" alt="Firoj Mulla" class="w-full h-full object-cover">
+  <main id="main" class="container">
+    <!-- PROFILE ROW -->
+    <section class="profile-row reveal">
+      <div class="profile-left">
+        <div class="profile-img-wrap">
+          <img src="assets/profile.jpg" alt="Firoj Mulla" class="profile-img" />
+        </div>
       </div>
 
-      <!-- RIGHT PROFILE INFO -->
-      <div class="flex-1">
-          <h1 class="text-4xl font-bold">Firoj Mulla</h1>
-          <p class="text-lg text-gray-600 mt-2">Full-Stack Operations Specialist</p>
+      <div class="profile-right">
+        <h2 class="title">About</h2>
+        <p class="lead">Full-Stack Operations Specialist — I bridge e-commerce operations, MIS automation and software QA to deliver measurable growth and operational excellence. Father of Jishan &amp; Ruhaan. Creator of AI-powered content and workflows.</p>
 
-          <div class="mt-4 flex gap-4 text-blue-600">
-              <a href="#" class="hover:text-blue-800">About</a>
-              <a href="#" class="hover:text-blue-800">Skills</a>
-              <a href="#" class="hover:text-blue-800">Projects</a>
+        <div class="highlights">
+          <div class="highlight"><strong>AI & Prompt Engineering</strong></div>
+          <div class="highlight"><strong>eCommerce Ops</strong></div>
+          <div class="highlight"><strong>MIS & Automation</strong></div>
+          <div class="highlight"><strong>Software Testing</strong></div>
+        </div>
+
+        <h3 class="sub">Skills</h3>
+        <div class="skills">
+          <span>Project Management</span>
+          <span>Google Analytics</span>
+          <span>SEO</span>
+          <span>Advanced Excel (VBA)</span>
+          <span>JIRA</span>
+          <span>Shopify / WooCommerce</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section id="expertise" class="expertise reveal">
+      <h2>Expertise — Designation wise</h2>
+      <div class="expert-grid">
+        <!-- Ecommerce -->
+        <div class="card">
+          <h3>Ecommerce Management</h3>
+          <ul class="labels">
+            <li>Product Listing</li>
+            <li>Digital Marketing</li>
+            <li>Meta Ads — Campaign creation & ROI</li>
+            <li>Google Ads — Approval → Campaign → ROAS</li>
+            <li>SEO</li>
+            <li>Data Analysis</li>
+            <li>Customer Service</li>
+            <li>UX/UI Optimization</li>
+            <li>Project Management</li>
+            <li>Google Analytics</li>
+            <li>Email Marketing</li>
+            <li>Shopify / WooCommerce</li>
+            <li>Flipkart / Amazon</li>
+          </ul>
+        </div>
+
+        <!-- MIS -->
+        <div class="card">
+          <h3>MIS Executive (B2B & IT)</h3>
+          <ul class="labels">
+            <li>Campaign execution</li>
+            <li>Advanced Excel file development</li>
+            <li>VBA automation</li>
+            <li>Data management & analysis</li>
+            <li>Report generation</li>
+            <li>Project management</li>
+            <li>Analytical problem solving</li>
+            <li>ERP systems</li>
+            <li>Business intelligence tools</li>
+          </ul>
+        </div>
+
+        <!-- QA -->
+        <div class="card">
+          <h3>Software Testing / QA</h3>
+          <ul class="labels">
+            <li>UAT / SDLC / STLC</li>
+            <li>Smoke / Sanity / Regression / Retesting</li>
+            <li>Test case design</li>
+            <li>Bug lifecycle</li>
+            <li>Exploratory testing</li>
+            <li>BVA / ECP / RTM</li>
+            <li>JIRA / JMeter / MySQL</li>
+            <li>Advanced Excel</li>
+            <li>AI-assisted testing</li>
+            <li>Agile-Scrum & patch deployment</li>
+            <li>Team collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section id="tools" class="tools reveal">
+      <h2>Tools</h2>
+      <div class="tools-grid">
+        <div class="tools-card">
+          <h4>Ecommerce Manager</h4>
+          <div class="tool-icons">
+            <img alt="Shopify" src="assets/icons/shopify.png">
+            <img alt="Search Console" src="assets/icons/search-console.png">
+            <img alt="Google Ads" src="assets/icons/google-ads.png">
+            <img alt="Meta" src="assets/icons/meta.png">
+            <img alt="Ahrefs" src="assets/icons/ahrefs.png">
+            <img alt="Screaming Frog" src="assets/icons/screamingfrog.png">
+            <img alt="HubSpot" src="assets/icons/hubspot.png">
+            <img alt="GA" src="assets/icons/google-analytics.png">
           </div>
+        </div>
+
+        <div class="tools-card">
+          <h4>MIS</h4>
+          <div class="tool-icons">
+            <img alt="Excel" src="assets/icons/excel.png">
+            <img alt="Outlook" src="assets/icons/outlook.png">
+            <img alt="VBA" src="assets/icons/vba.png">
+          </div>
+        </div>
+
+        <div class="tools-card">
+          <h4>Software Testing / QA</h4>
+          <div class="tool-icons">
+            <img alt="JIRA" src="assets/icons/jira.png">
+            <img alt="JMeter" src="assets/icons/jmeter.png">
+            <img alt="MySQL" src="assets/icons/mysql.png">
+            <img alt="Excel" src="assets/icons/excel.png">
+            <img alt="Postman" src="assets/icons/postman.png">
+          </div>
+        </div>
       </div>
-  </section>
+    </section>
 
-  <hr class="my-6">
+    <!-- PROJECTS -->
+    <section id="projects" class="projects reveal">
+      <h2>Projects</h2>
 
-  <!-- EXPERTISE SECTION -->
-  <h2 class="text-3xl font-bold mb-4">Expertise</h2>
+      <article class="project-card">
+        <h3>Internal Audit Management System (IAMS)</h3>
+        <p class="muted">Built on MetricStream to manage end-to-end audit workflows: planning, execution, reporting, issue tracking & closure. Improves governance, compliance, and risk assessment.</p>
+        <button class="btn" data-action="open-workflow">View Workflow Image</button>
+      </article>
 
-  <div class="grid md:grid-cols-3 gap-6">
+      <article class="project-card">
+        <h3>SEO Projects</h3>
+        <p class="muted">Gallery grid — upload images to <code>assets/seo/</code>. (Images will appear below.)</p>
+        <div class="gallery-grid" id="seo-gallery">
+          <div class="placeholder">Image 1</div>
+          <div class="placeholder">Image 2</div>
+          <div class="placeholder">Image 3</div>
+          <div class="placeholder">Image 4</div>
+        </div>
+      </article>
+    </section>
 
-      <!-- Column 1 -->
-      <div class="bg-white p-5 rounded-xl shadow">
-          <h3 class="font-semibold text-xl border-b pb-2">Ecommerce Management</h3>
-          <ul class="mt-3 space-y-2 text-gray-700">
-              <li>Product Listing</li>
-              <li>Digital Marketing</li>
-              <li>Meta Ads Campaign + ROI</li>
-              <li>Google Ads (Approval to ROAS)</li>
-              <li>SEO</li>
-              <li>Data Analysis</li>
-              <li>Customer Service</li>
-              <li>UX/UI Optimization</li>
-              <li>Project Management</li>
-              <li>Google Analytics</li>
-              <li>Email Marketing</li>
-              <li>Shopify / WooCommerce</li>
-              <li>Flipkart / Amazon</li>
-          </ul>
+    <!-- CONTACT -->
+    <section id="contact" class="contact reveal">
+      <h2>Contact</h2>
+      <div class="contact-card">
+        <div>
+          <p><strong>Name:</strong> Firoj Mulla</p>
+          <p><strong>Email:</strong> <a href="mailto:replace@yourdomain.com">replace@yourdomain.com</a></p>
+          <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
+          <p><strong>Website:</strong> <a href="#">yourwebsite.com</a></p>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Twitter">Twitter</a>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <!-- Column 2 -->
-      <div class="bg-white p-5 rounded-xl shadow">
-          <h3 class="font-semibold text-xl border-b pb-2">MIS Executive (B2B / IT)</h3>
-          <ul class="mt-3 space-y-2 text-gray-700">
-              <li>Campaign Execution</li>
-              <li>Advanced Excel File Development</li>
-              <li>VBA Automation</li>
-              <li>Data Management</li>
-              <li>Report Generation</li>
-              <li>Project Management</li>
-              <li>Problem Solving</li>
-              <li>ERP Systems</li>
-              <li>Business Intelligence Tools</li>
-          </ul>
-      </div>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Firoj Mulla — All rights reserved.</p>
+    </div>
+  </footer>
 
-      <!-- Column 3 -->
-      <div class="bg-white p-5 rounded-xl shadow">
-          <h3 class="font-semibold text-xl border-b pb-2">Software Testing / QA</h3>
-          <ul class="mt-3 space-y-2 text-gray-700">
-              <li>UAT Testing</li>
-              <li>SDLC / STLC</li>
-              <li>Smoke / Sanity</li>
-              <li>Regression / Retesting</li>
-              <li>Test Case Design</li>
-              <li>Bug Life Cycle</li>
-              <li>Exploratory Testing</li>
-              <li>BVA / ECP / RTM</li>
-              <li>JIRA / JMeter</li>
-              <li>MySQL</li>
-              <li>Advanced Excel</li>
-              <li>Agile Scrum</li>
-              <li>Patch Deployment</li>
-              <li>Team Collaboration</li>
-          </ul>
-      </div>
-
+  <!-- WORKFLOW MODAL -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-action="close-modal"></div>
+    <div class="modal-body" role="dialog" aria-modal="true" aria-label="Workflow image">
+      <button class="modal-close" data-action="close-modal" aria-label="Close">✕</button>
+      <img src="assets/workflow.jpg" alt="Workflow diagram" id="workflow-image">
+      <p class="caption">Internal Audit Management System (IAMS) — workflow</p>
+    </div>
   </div>
-
-  <!-- TOOLS SECTION -->
-  <h2 class="text-3xl font-bold mt-12 mb-4">Tools</h2>
-
-  <div class="grid md:grid-cols-3 gap-6">
-
-      <!-- Ecommerce Tools -->
-      <div class="bg-white p-5 rounded-xl shadow">
-          <h3 class="font-semibold text-lg border-b pb-2">Ecommerce Manager Tools</h3>
-          <ul class="mt-3 space-y-3">
-              <li>Shopify</li>
-              <li>Google Search Console</li>
-              <li>Google Ads</li>
-              <li>Meta Ads</li>
-              <li>Ahrefs</li>
-              <li>Screaming Frog</li>
-              <li>HubSpot</li>
-              <li>Google Analytics</li>
-          </ul>
-      </div>
-
-      <!-- MIS Tools -->
-      <div class="bg-white p-5 rounded-xl shadow">
-          <h3 class="font-semibold text-lg border-b pb-2">MIS Tools</h3>
-          <ul class="mt-3 space-y-3">
-              <li>Advanced Excel</li>
-              <li>Outlook</li>
-              <li>VBA / Macro</li>
-          </ul>
-      </div>
-
-      <!-- QA Tools -->
-      <div class="bg-white p-5 rounded-xl shadow">
-          <h3 class="font-semibold text-lg border-b pb-2">QA Tools</h3>
-          <ul class="mt-3 space-y-3">
-              <li>JIRA</li>
-              <li>JMeter</li>
-              <li>MySQL</li>
-              <li>Advanced Excel</li>
-              <li>Postman</li>
-          </ul>
-      </div>
-  </div>
-
-  <!-- PROJECTS -->
-  <h2 class="text-3xl font-bold mt-12 mb-4">Projects</h2>
-
-  <!-- Internal Audit Project -->
-  <div class="bg-white p-6 rounded-xl shadow mb-6">
-      <h3 class="font-semibold text-xl">Internal Audit Management System (IAMS)</h3>
-      <p class="text-gray-700 mt-2">
-          Built on MetricStream platform to manage end-to-end audit workflows including audit planning, execution, report generation, issue tracking, and closure.  
-          The project improved governance, compliance, and risk assessment.
-      </p>
-
-      <a href="#" class="inline-block mt-4 text-blue-600 hover:underline">View Workflow Image</a>
-  </div>
-
-  <!-- SEO Projects -->
-  <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-semibold text-xl mb-3">SEO Projects</h3>
-      <p class="text-gray-700 mb-4">Below is the image grid (You can add images later):</p>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="w-full h-32 bg-gray-200 rounded"></div>
-          <div class="w-full h-32 bg-gray-200 rounded"></div>
-          <div class="w-full h-32 bg-gray-200 rounded"></div>
-          <div class="w-full h-32 bg-gray-200 rounded"></div>
-      </div>
-  </div>
-
-  <!-- CONTACT -->
-  <h2 class="text-3xl font-bold mt-12 mb-4">Contact Information</h2>
-
-  <div class="bg-white p-6 rounded-xl shadow">
-      <p><strong>Name:</strong> Firoj Mulla</p>
-      <p><strong>Email:</strong> yourmail@gmail.com</p>
-      <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-      <p><strong>Website:</strong> yourwebsite.com</p>
-
-      <h3 class="font-semibold text-lg mt-4">Social Media</h3>
-      <div class="flex gap-4 mt-2 text-blue-600">
-          <a href="#" class="hover:text-blue-800"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="#" class="hover:text-blue-800"><i class="fab fa-twitter"></i> Twitter</a>
-      </div>
-  </div>
-
-</div>
-
 </body>
 </html>
