@@ -10,9 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetElement = document.querySelector(targetId);
 
                 if (targetElement) {
-                    // Calculate position to account for the header if it were sticky
                     // Using targetElement.scrollIntoView for simplicity and modern smooth scroll
-                    targetElement.scrollIntoView({
+                    // Added a slight offset for the fixed header
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerHeight,
                         behavior: 'smooth'
                     });
                 }
@@ -22,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- 2. Section Reveal Animation (Intersection Observer) ---
-    const sections = document.querySelectorAll('.section');
+    // Note: The profile-intro-section is observed, but we skip the hidden section-divider
+    const sections = document.querySelectorAll('.section:not(.section-divider)');
 
     const observerOptions = {
         root: null, // relative to the viewport
@@ -34,7 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Stop observing once visible
+                // Removed unobserve to allow re-triggering for better UX on long scrolls
+            } else {
+                // Optional: Remove 'active' when leaving the viewport for a cleaner effect
+                // entry.target.classList.remove('active');
             }
         });
     }, observerOptions);
@@ -81,9 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setActiveNav = (entries) => {
         entries.forEach(entry => {
+            // Find the closest anchor that is currently visible
             if (entry.isIntersecting) {
                 // Remove active class from all links
                 navLinks.forEach(link => link.classList.remove('active-nav'));
+                
                 // Find the corresponding navigation link and add active class
                 const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
                 if (activeLink) {
@@ -95,8 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const navObserverOptions = {
         root: null,
-        rootMargin: '-50% 0px -50% 0px', // Center of the viewport is the trigger
-        threshold: 0 // Only care about intersection changes
+        // Center of the viewport is the trigger for nav link change
+        rootMargin: '-30% 0px -30% 0px', 
+        threshold: 0 
     };
 
     const navObserver = new IntersectionObserver(setActiveNav, navObserverOptions);
