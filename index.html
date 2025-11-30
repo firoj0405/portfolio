@@ -5,9 +5,504 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firoj Mulla | Full-Stack Operations Specialist Portfolio (Dark Theme)</title>
     <meta name="description" content="Official Portfolio of Firoj Mulla, a Full-Stack Operations Specialist expert in E-commerce, MIS, and Software Testing (QA).">
-    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Poppins & Playfair Display -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --background-color: #121212;
+            --surface-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --primary-color: #3f51b5; /* Indigo/Blue for highlights */
+            --primary-hover: #5c70d4;
+            --font-main: 'Poppins', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--surface-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between; /* Push nav and social icons apart */
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Social Media Icons in Header (New Position) */
+        .social-header-right {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-header-right a {
+            color: var(--text-color);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-header-right a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            padding: 60px 20px;
+            margin-bottom: 30px;
+            background-color: var(--surface-color);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            opacity: 0; /* For reveal effect */
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 2px solid rgba(63, 81, 181, 0.5);
+            padding-bottom: 10px;
+        }
+        
+        /* Profile Section */
+        .profile-intro-section {
+            display: flex;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .profile-sidebar {
+            flex-basis: 300px;
+            text-align: center;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: 10px;
+        }
+
+        .profile-image-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid var(--primary-color);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-family: var(--font-heading);
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            font-weight: 400;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+        
+        .contact-details-horizontal p {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        .info-area {
+            flex-grow: 1;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .highlight-card {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: default;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .highlight-card i {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .highlight-card h4 {
+            font-family: var(--font-heading);
+            margin-bottom: 10px;
+        }
+
+        /* CV Download Button */
+        .cv-download-link {
+            display: inline-block;
+            background-color: #ff4081; /* Accent color */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 30px;
+            transition: background-color 0.3s;
+            /* Blinking animation */
+            animation: pulse 1.5s infinite;
+        }
+        
+        .cv-download-link:hover {
+            background-color: #e91e63;
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Expertise Section */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .expertise-column {
+            background-color: #2a2a2a;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .column-title {
+            font-family: var(--font-heading);
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .skills-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            background-color: #444;
+            color: var(--text-color);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+
+        /* Tools Section */
+        .tool-subtext {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #999;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-category {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .tool-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .tool-list img, .tool-list i {
+            width: 40px;
+            height: 40px;
+            font-size: 30px;
+            transition: transform 0.2s;
+        }
+
+        .tool-list img:hover, .tool-list i:hover {
+            transform: scale(1.2);
+        }
+
+        .excel-icon { color: #217346; } /* MS Excel Green */
+        .outlook-icon { color: #0078D4; } /* MS Outlook Blue */
+        .code-icon { color: #f39c12; } /* Code/VBA Orange */
+
+        /* Projects Section */
+        .project-category {
+            margin-bottom: 40px;
+        }
+        
+        .category-title {
+            font-family: var(--font-heading);
+            font-size: 1.5em;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .main-project-card {
+            background-color: #333;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12; /* Accent color for projects */
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 600;
+            cursor: pointer; /* Indicate clickability */
+        }
+        
+        .project-link i {
+            margin-left: 8px;
+        }
+        
+        /* SEO, Certification, Awards Galleries (Use SEO Gallery Grid) */
+        .seo-gallery, .certification-gallery, .awards-gallery {
+            display: grid;
+            /* Default 4-column layout for certificates/projects */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* Awards section needs one large image spanning 4 columns */
+        .awards-gallery .full-width-item {
+            grid-column: span 4; 
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer; /* Indicate clickability */
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-item img.hd-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        
+        /* Contact Section */
+        .contact-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        
+        .social-media a {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--surface-color);
+            color: #999;
+            font-size: 0.8em;
+            margin-top: 40px;
+        }
+
+        /* Image Modal (Lightbox) Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        .modal-content-container {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: auto;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .modal-content {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 90vh; /* Adjust height based on viewport */
+            border-radius: 8px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: -30px; /* Position above the image/container */
+            right: 10px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--primary-color);
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 900px) {
+            .profile-intro-section {
+                flex-direction: column;
+            }
+            .header {
+                padding: 10px 20px;
+            }
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .social-header-right {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+            .seo-gallery, .certification-gallery {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet/mobile */
+            }
+            .awards-gallery .full-width-item {
+                grid-column: span 2; /* Spans 2 columns on mobile */
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .seo-gallery, .certification-gallery, .awards-gallery {
+                grid-template-columns: 1fr; /* 1 column on small mobile screens */
+            }
+            .awards-gallery .full-width-item {
+                grid-column: span 1; 
+            }
+            .contact-card {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+        
+        .section-divider {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 40px 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,12 +514,14 @@
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#contact" class="nav-link">Contact</a>
             
+            <!-- Social Media Icons (Aligned Right) -->
             <div class="social-header-right">
                 <a href="https://www.linkedin.com/in/firoj-mulla-9ab5a3158/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://twitter.com/firojmulla" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.youtube.com/@aikevideo" target="_blank" title="YouTube" style="color:#FF0000;"><i class="fab fa-youtube"></i></a>
             </div>
-            </nav>
+            <!-- End Social Media Icons -->
+        </nav>
     </header>
 
     <main class="main-content">
@@ -33,7 +530,8 @@
             
             <div class="profile-sidebar">
                 <div class="profile-image-container">
-                    <img src="profile-placeholder.jpg" alt="HD Profile Image of Firoj Mulla" class="profile-image">
+                    <!-- Update with actual path if needed, or keep placeholder -->
+                    <img src="images/profile-placeholder.jpg" alt="HD Profile Image of Firoj Mulla" class="profile-image">
                 </div>
                 <h1 class="profile-name">Firoj Mulla</h1>
                 <h2 class="profile-title">Full-Stack Operations Specialist</h2>
@@ -49,6 +547,7 @@
 
             <div class="info-area profile-info-area">
                 
+                <!-- NEW BLINKING CV DOWNLOAD BUTTON -->
                 <a href="Firoj_Mulla_CV.pdf" download class="cv-download-link">
                     <i class="fas fa-file-pdf"></i> Download CV
                 </a>
@@ -157,15 +656,16 @@
                 <h4 class="category-title">1) Main Project – Internal Audit Management System (IAMS)</h4>
                 <div class="main-project-card">
                     <p class="project-details project-intro">Internal Audit Management System (IAMS) — built on **MetricStream platform** for complete audit lifecycle: planning, execution, reporting, issue tracking & closure. Enhances governance, compliance & risk assessment efficiency.</p>
-                    <a href="#" id="iams-link" class="project-link">
+                    
+                    <!-- Updated: Added data-img-src for JS to grab the image path -->
+                    <a href="#" id="iams-link" class="project-link" 
+                       data-img-src="images/workflow-placeholder.jpg" 
+                       title="Click to view IAMS Workflow Diagram">
                         Click to View IAMS Workflow Diagram <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
-            <div id="iams-modal" class="modal">
-                <span class="close-button">&times;</span>
-                <img class="modal-content" id="iams-image" src="workflow-placeholder.jpg" alt="IAMS Workflow Diagram">
-            </div>
+            <!-- Removed the old IAMS Modal -->
         </section>
 
         <div class="section-divider"></div>
@@ -174,33 +674,56 @@
             <h3 class="section-title">📈 SEO Projects Gallery</h3>
             <p class="project-subtext">Visual examples showcasing SEO strategy implementation, ranking improvements, and technical audit findings.</p>
             <div class="seo-gallery">
-                <div class="gallery-item"><img src="Location wise Views Screenshot 2025-10-24 231732.png" alt="SEO Project 1 Snapshot" class="hd-image"></div>
-                <div class="gallery-item"><img src="seo-image-2.jpg" alt="SEO Project 2 Snapshot" class="hd-image"></div>
-                <div class="gallery-item"><img src="seo-image-3.jpg" alt="SEO Project 3 Snapshot" class="hd-image"></div>
-                <div class="gallery-item"><img src="seo-image-4.jpg" alt="SEO Project 4 Snapshot" class="hd-image"></div>
+                <!-- Data attributes added to images to enable click-to-zoom -->
+                <div class="gallery-item">
+                    <img src="images/seo-image-1.jpg" alt="SEO Project 1 Snapshot" class="hd-image" data-img-src="images/seo-image-1.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/seo-image-2.jpg" alt="SEO Project 2 Snapshot" class="hd-image" data-img-src="images/seo-image-2.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/seo-image-3.jpg" alt="SEO Project 3 Snapshot" class="hd-image" data-img-src="images/seo-image-3.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/seo-image-4.jpg" alt="SEO Project 4 Snapshot" class="hd-image" data-img-src="images/seo-image-4.jpg">
+                </div>
             </div>
         </section>
 
         <div class="section-divider"></div>
 
+        <!-- Updated: Certification Section (4 Square Grid - using the same structure as seo-gallery) -->
         <section id="certification" class="section full-page-section reveal">
             <h3 class="section-title">🏅 Certifications</h3>
             <p class="certification-subtext">Verified expertise in key professional domains.</p>
             <div class="certification-gallery seo-gallery">
-                <div class="gallery-item"><img src="certification-placeholder-1.jpg" alt="Professional Certification 1" class="hd-image"></div>
-                <div class="gallery-item"><img src="certification-placeholder-2.jpg" alt="Professional Certification 2" class="hd-image"></div>
-                <div class="gallery-item"><img src="certification-placeholder-3.jpg" alt="Professional Certification 3" class="hd-image"></div>
-                <div class="gallery-item"><img src="certification-placeholder-4.jpg" alt="Professional Certification 4" class="hd-image"></div>
+                <!-- Four placeholders for certification images. Data attributes added. -->
+                <div class="gallery-item">
+                    <img src="images/certification-placeholder-1.jpg" alt="Professional Certification 1" class="hd-image" data-img-src="images/certification-placeholder-1.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/certification-placeholder-2.jpg" alt="Professional Certification 2" class="hd-image" data-img-src="images/certification-placeholder-2.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/certification-placeholder-3.jpg" alt="Professional Certification 3" class="hd-image" data-img-src="images/certification-placeholder-3.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/certification-placeholder-4.jpg" alt="Professional Certification 4" class="hd-image" data-img-src="images/certification-placeholder-4.jpg">
+                </div>
             </div>
         </section>
 
         <div class="section-divider"></div>
 
+        <!-- Updated: Awards Section (1 Square Section - using the same structure as seo-gallery) -->
         <section id="awards" class="section full-page-section reveal">
             <h3 class="section-title">🏆 Awards & Recognition</h3>
             <p class="awards-subtext">Celebrating professional achievements and impact.</p>
             <div class="awards-gallery seo-gallery">
-                <div class="gallery-item full-width-item"><img src="awards-placeholder-1.jpg" alt="Professional Award" class="hd-image"></div>
+                <!-- Single placeholder for the award image. Data attribute added. -->
+                <div class="gallery-item full-width-item">
+                    <img src="images/awards-placeholder-1.jpg" alt="Professional Award" class="hd-image" data-img-src="images/awards-placeholder-1.jpg">
+                </div>
             </div>
         </section>
 
@@ -218,9 +741,7 @@
                 <div class="social-media">
                     <a href="https://www.linkedin.com/in/firoj-mulla-9ab5a3158/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://twitter.com/firojmulla" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.youtube.com/@aikevideo" target="_blank" title="YouTube" style="color:#FF0000;">
-        <i class="fab fa-youtube"></i>
-</a>
+                    <a href="https://www.youtube.com/@aikevideo" target="_blank" title="YouTube" style="color:#FF0000;"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </section>
@@ -231,6 +752,108 @@
         <p>&copy; 2025 Firoj Mulla. Engineered for performance and elegance.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Unified Image Modal Structure -->
+    <div id="image-modal" class="modal">
+        <div class="modal-content-container">
+            <span class="close-button" id="close-modal">&times;</span>
+            <img class="modal-content" id="modal-image" src="">
+        </div>
+    </div>
+    <!-- End Image Modal -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- General Logic ---
+            const mainContent = document.querySelector('.main-content');
+            
+            // --- Modal Logic ---
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeButton = document.getElementById('close-modal');
+
+            function openModal(imageSrc) {
+                modalImage.src = imageSrc;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            }
+
+            function closeModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+                modalImage.src = ''; // Clear image source
+            }
+
+            // Close modal when clicking the close button
+            closeButton.addEventListener('click', closeModal);
+
+            // Close modal when clicking outside the image (on the modal background)
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close modal when pressing the ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    closeModal();
+                }
+            });
+
+            // --- IAMS Link Click Listener ---
+            const iamsLink = document.getElementById('iams-link');
+            if (iamsLink) {
+                iamsLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const imageSrc = iamsLink.getAttribute('data-img-src');
+                    if (imageSrc) {
+                        openModal(imageSrc);
+                    }
+                });
+            }
+
+            // --- Gallery Image Click Listeners (SEO, Certifications, Awards) ---
+            const galleryImages = mainContent.querySelectorAll('.seo-gallery img, .certification-gallery img, .awards-gallery img');
+            galleryImages.forEach(img => {
+                // To support both data-img-src and standard src for simplicity
+                const imageSrc = img.getAttribute('data-img-src') || img.src; 
+                
+                img.addEventListener('click', () => {
+                    openModal(imageSrc);
+                });
+            });
+
+
+            // --- Section Reveal Animation Logic (Kept for visual appeal) ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.reveal').forEach(section => {
+                observer.observe(section);
+            });
+            
+            // --- Navigation Smooth Scroll ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Only apply smooth scroll if it's an internal link
+                    if (this.classList.contains('nav-link')) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>
