@@ -3,15 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>फिरोज मुल्ला | पूर्ण-स्टैक परिचालन विशेषज्ञ पोर्टफोलियो (शुद्ध HTML)</title>
+    <title>फिरोज मुल्ला | पूर्ण-स्टैक परिचालन विशेषज्ञ पोर्टफोलियो (पूरी तरह कार्यात्मक)</title>
     <meta name="description" content="फिरोज मुल्ला का आधिकारिक पोर्टफोलियो, जो ई-कॉमर्स, एमआईएस, और सॉफ्टवेयर टेस्टिंग (क्यूए) में विशेषज्ञ हैं।">
     
-    <!-- आइकन के लिए फ़ॉन्ट बहुत बढ़िया (Font Awesome for Icons) - केवल लिंक रखा गया है -->
+    <!-- आइकन के लिए फ़ॉन्ट बहुत बढ़िया (Font Awesome for Icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google फ़ॉन्ट्स - केवल लिंक रखा गया है -->
+    <!-- Google फ़ॉन्ट्स -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
-    <!-- CSS शैलियाँ हटा दी गई हैं (Styles removed) -->
+    <!-- ********** CSS शैलियाँ यहाँ से शुरू (START OF CSS STYLES) ********** -->
+    <style>
+        :root {
+            --primary-color: #3f51b5; /* Indigo */
+            --primary-light: #7986cb;
+            --secondary-color: #ff9800; /* Amber */
+            --background-color: #f4f7f6;
+            --card-background: #ffffff;
+            --text-color: #333333;
+            --heading-color: #1a237e; /* Darker Indigo */
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding-top: 60px; /* Header height */
+            scroll-behavior: smooth;
+        }
+
+        /* ----- Header & Navigation ----- */
+        .header {
+            background-color: var(--card-background);
+            box-shadow: var(--shadow-light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--heading-color);
+            padding: 10px 15px;
+            font-weight: 600;
+            transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+            border-radius: 8px;
+            margin: 0 5px;
+        }
+
+        .nav-link:hover {
+            color: var(--card-background);
+            background-color: var(--primary-color);
+        }
+
+        .social-header-right {
+            margin-left: auto;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-header-right a {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-header-right a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* ----- Main Content Layout ----- */
+        .main-content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background-color: var(--card-background);
+            padding: 40px;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            opacity: 0; /* Used for JS reveal effect */
+            transform: translateY(20px); /* Used for JS reveal effect */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-divider {
+            height: 2px;
+            width: 50%;
+            margin: 40px auto;
+            background: linear-gradient(to right, transparent, var(--primary-light), transparent);
+        }
+
+        /* ----- Profile Section ----- */
+        .profile-intro-section {
+            display: flex;
+            gap: 30px;
+            padding: 60px 40px;
+        }
+
+        .profile-sidebar {
+            flex-basis: 300px;
+            flex-shrink: 0;
+            text-align: center;
+            padding: 20px;
+            border-right: 1px solid #eee;
+        }
+
+        .profile-image-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 0 8px rgba(63, 81, 181, 0.2);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 2em;
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .profile-subtitle {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .info-area {
+            flex-grow: 1;
+        }
+
+        .contact-details-horizontal p {
+            font-size: 0.9em;
+            margin: 5px 0;
+            text-align: left;
+        }
+        
+        .contact-details-horizontal a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .contact-details-horizontal i {
+            width: 20px;
+            text-align: center;
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        /* CV Download Button */
+        .cv-download-link {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 30px 0;
+            padding: 10px 25px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .cv-download-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
+        }
+
+        /* Highlights Grid */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .highlight-card {
+            background-color: var(--background-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-card i {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .highlight-card h4 {
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+
+        /* ----- Expertise Section ----- */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .expertise-column {
+            padding: 20px;
+            border-radius: var(--border-radius);
+            background-color: var(--background-color);
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .column-title {
+            color: var(--heading-color);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+        }
+
+        .skills-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            background-color: var(--primary-light);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .badge:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* ----- Tools Section ----- */
+        .tool-subtext {
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #777;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-category {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+        }
+
+        .tool-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .tool-list img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .tool-list img:hover {
+            transform: scale(1.15);
+        }
+
+        .tool-list i {
+            font-size: 3em;
+            line-height: 48px;
+            width: 48px;
+            height: 48px;
+            transition: transform 0.3s;
+        }
+        
+        .tool-list i:hover {
+            transform: scale(1.15);
+        }
+
+        .excel-icon { color: #21a366; }
+        .outlook-icon { color: #0078d4; }
+        .code-icon { color: #f38a35; } 
+
+        /* ----- Projects Section ----- */
+        .project-category {
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            font-size: 1.6em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .main-project-card {
+            background-color: var(--background-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .project-details {
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link i {
+            margin-left: 5px;
+        }
+
+        .project-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Gallery Sections (SEO, Certifications, Awards) */
+        .project-subtext, .certification-subtext, .awards-subtext {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .seo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .certification-gallery {
+             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .hd-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .full-width-item {
+            grid-column: 1 / -1; /* For awards/single large items */
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        /* ----- Contact Section ----- */
+        .contact-card {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+        }
+
+        .social-media {
+            margin-top: 25px;
+            display: flex;
+            gap: 30px;
+            font-size: 1.8em;
+        }
+
+        .social-media a {
+            color: white;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-media a:hover {
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        /* ----- Footer ----- */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--heading-color);
+            color: white;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+
+        /* ----- Image Modal (Zoom Feature) ----- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9);
+            padding-top: 60px;
+        }
+
+        .modal-content-container {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+            position: relative;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        .modal-content {
+            width: 100%;
+            height: auto;
+            max-height: 80vh; 
+            object-fit: contain;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)} 
+            to {transform: scale(1)}
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        /* ----- Responsive Design (Mobile Adjustments) ----- */
+        @media (max-width: 900px) {
+            .nav {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px 20px;
+            }
+            
+            .nav a {
+                padding: 5px 10px;
+                font-size: 0.9em;
+                margin: 5px 2px;
+            }
+
+            .social-header-right {
+                order: -1; 
+                margin: 0 auto 10px;
+            }
+            
+            .header {
+                padding-top: 10px;
+                height: auto;
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+
+            .profile-intro-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .profile-sidebar {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .highlights-grid, .expertise-grid, .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .full-width-item {
+                max-width: 100%;
+            }
+
+            .modal-content-container {
+                width: 95%;
+                padding-top: 10px;
+            }
+        }
+    </style>
+    <!-- ********** CSS शैलियाँ यहाँ समाप्त (END OF CSS STYLES) ********** -->
+
 </head>
 <body>
 
@@ -167,7 +758,6 @@
                 <div class="main-project-card">
                     <p class="project-details project-intro">आंतरिक लेखा परीक्षा प्रबंधन प्रणाली (IAMS) — संपूर्ण ऑडिट जीवनचक्र के लिए **MetricStream प्लेटफ़ॉर्म** पर निर्मित: योजना, निष्पादन, रिपोर्टिंग, समस्या ट्रैकिंग और समापन।</p>
                     
-                    <!-- इस लिंक पर क्लिक करने पर अब ज़ूम काम नहीं करेगा क्योंकि JavaScript हटा दिया गया है -->
                     <a href="#" id="iams-link" class="project-link" 
                        data-img-src="images/workflow-placeholder.jpg" 
                        title="IAMS वर्कफ़्लो आरेख देखने के लिए क्लिक करें">
@@ -183,7 +773,6 @@
             <h3 class="section-title">📈 एसईओ परियोजना गैलरी (SEO Projects Gallery)</h3>
             <p class="project-subtext">एसईओ रणनीति कार्यान्वयन, रैंकिंग सुधार और तकनीकी ऑडिट निष्कर्षों को प्रदर्शित करने वाले दृश्य उदाहरण।</p>
             <div class="seo-gallery">
-                <!-- ज़ूम फ़ंक्शन को सक्षम करने वाला डेटा विशेषता (data attribute) अभी भी मौजूद है, लेकिन वह काम नहीं करेगा -->
                 <div class="gallery-item">
                     <img src="images/seo-image-1.jpg" alt="एसईओ परियोजना 1 स्नैपशॉट" class="hd-image" data-img-src="images/seo-image-1.jpg">
                 </div>
@@ -261,7 +850,7 @@
         <p>&copy; 2025 फिरोज मुल्ला (Firoj Mulla).</p>
     </footer>
 
-    <!-- इमेज मॉडल संरचना (Image Modal Structure) - केवल HTML संरचना रखी गई है -->
+    <!-- इमेज मॉडल संरचना (Image Modal Structure) -->
     <div id="image-modal" class="modal">
         <div class="modal-content-container">
             <!-- बंद करने का बटन (Close Button) -->
@@ -272,6 +861,110 @@
     </div>
     <!-- इमेज मॉडल समाप्त -->
 
-    <!-- जावास्क्रिप्ट हटा दी गई है (JavaScript removed) -->
+    <!-- ********** जावास्क्रिप्ट लॉजिक यहाँ से शुरू (START OF JAVASCRIPT LOGIC) ********** -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Reveal sections on scroll (Fade-in effect)
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // 2. Image Modal/Zoom Functionality
+            const modal = document.getElementById("image-modal");
+            const modalImage = document.getElementById("modal-image");
+            const closeModal = document.getElementById("close-modal");
+            const galleryItems = document.querySelectorAll('.gallery-item .hd-image');
+            const iamsLink = document.getElementById('iams-link');
+
+            // Function to open modal
+            function openModal(imageSrc) {
+                modal.style.display = "block";
+                modalImage.src = imageSrc;
+            }
+
+            // Click listener for image gallery items
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const fullSrc = item.getAttribute('data-img-src');
+                    if (fullSrc) {
+                        openModal(fullSrc);
+                    }
+                });
+            });
+
+            // Click listener for IAMS link
+            if (iamsLink) {
+                iamsLink.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default link behavior
+                    const fullSrc = iamsLink.getAttribute('data-img-src');
+                    if (fullSrc) {
+                        openModal(fullSrc);
+                    }
+                });
+            }
+
+            // Function to close modal
+            function closeTheModal() {
+                modal.style.display = "none";
+            }
+
+            // Close modal on 'x' click
+            closeModal.addEventListener('click', closeTheModal);
+
+            // Close modal on outside click
+            window.addEventListener('click', (event) => {
+                if (event.target == modal) {
+                    closeTheModal();
+                }
+            });
+
+            // Close modal on Escape key press
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === "block") {
+                    closeTheModal();
+                }
+            });
+
+            // 3. Scroll to top adjustment for hash links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+        });
+    </script>
+    <!-- ********** जावास्क्रिप्ट लॉजिक यहाँ समाप्त (END OF JAVASCRIPT LOGIC) ********** -->
+
 </body>
 </html>
