@@ -1,548 +1,669 @@
-/* ======================================== */
-/* 0. BASE & RESET */
-/* ======================================== */
+/*
+    -----------------------------------------------------------------------
+    Global Reset and Typography - Dark Theme & Premium Foundation
+    -----------------------------------------------------------------------
+*/
 :root {
-    --color-background-primary: #121212;
-    --color-background-secondary: #1e1e1e;
-    --color-text-primary: #e0e0e0;
-    --color-text-secondary: #a0a0a0;
-    --color-accent: #00bcd4; /* A light cyan for contrast */
-    --color-badge: #333333;
-    --color-divider: #333333;
+    --color-primary: #C7B58C;       /* Elegant Gold/Bronze for accents and headings */
+    --color-secondary: #E0E0E0;     /* Light Gray for main text */
+    --color-text-dark: #222222;     /* Deep readable text (used in light elements) */
+    --color-background: #1A1A1A;    /* Deep Charcoal Dark Background */
+    --color-background-offset: #252525; /* Slightly lighter dark background for cards */
+    --color-hover-bg: #333333;      /* Darker background for hover effects */
+    --color-shadow: rgba(0, 0, 0, 0.4); /* Darker, pronounced shadow */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Poppins', sans-serif;
-    --padding-section: 60px;
-    --header-height: 75px; /* Define the approximate height for consistency */
+    --transition-speed: 0.3s;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: var(--font-body);
-    line-height: 1.6;
-    background-color: var(--color-background-primary);
-    color: var(--color-text-primary);
+    line-height: 1.7;
+    color: var(--color-secondary);
+    background: var(--color-background);
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 a {
-    color: var(--color-accent);
     text-decoration: none;
-    transition: color 0.3s ease;
+    color: var(--color-primary);
+    transition: color var(--transition-speed);
 }
 
 a:hover {
-    color: var(--color-text-primary);
+    color: #ffffff;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: var(--font-heading);
-    color: var(--color-text-primary);
-    margin-bottom: 15px;
-}
-
-/* ======================================== */
-/* 1. HEADER & NAVIGATION (STICKY FIX HERE) */
-/* ======================================== */
-
+/*
+    -----------------------------------------------------------------------
+    Header and Navigation (Top Right)
+    -----------------------------------------------------------------------
+*/
 .header {
-    /* FIX: Makes the header sticky */
+    background-color: var(--color-background);
+    padding: 20px 50px;
+    box-shadow: 0 4px 15px var(--color-shadow);
     position: sticky;
     top: 0;
     z-index: 1000;
-    
+    display: flex;
+    justify-content: flex-end; /* Push nav to the right */
     width: 100%;
-    background-color: var(--color-background-secondary);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-    padding: 15px 5%; /* Contributes to the overall height */
 }
 
 .nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 45px; /* Ensures consistent internal spacing */
+    gap: 25px;
 }
 
 .nav-link {
-    color: var(--color-text-primary);
-    padding: 10px 15px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 1rem;
+    color: var(--color-secondary);
+    position: relative;
+    padding-bottom: 4px;
 }
 
-.nav-link:hover {
-    color: var(--color-accent);
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--color-primary);
+    transition: width var(--transition-speed) ease;
 }
 
-.social-header-right a {
-    font-size: 1.2rem;
-    margin-left: 20px;
-    color: var(--color-text-secondary); /* Default social icon color */
+.nav-link:hover,
+.nav-link.active-nav {
+    color: var(--color-primary);
 }
 
-/* Inline style removed from HTML and placed here */
-.youtube-link {
-    color: #FF0000; /* YouTube Red */
+.nav-link:hover::after,
+.nav-link.active-nav::after {
+    width: 100%;
+    left: 0;
+    right: auto;
 }
 
-.social-header-right a:hover {
-    opacity: 0.8;
-}
-
-/* ======================================== */
-/* 2. MAIN LAYOUT & SECTIONS (CONTENT OVERLAP FIX) */
-/* ======================================== */
-
-.main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    /* FIX: Pushes the content down below the sticky header */
-    padding-top: var(--header-height); 
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 20px;
-}
-
+/*
+    -----------------------------------------------------------------------
+    Main Content Area & Sections (Individual "Pages")
+    -----------------------------------------------------------------------
+*/
 .section {
-    padding: var(--padding-section) 0;
+    padding: 60px 5vw; /* Generous horizontal padding */
+    min-height: 100vh; /* Ensures full-page feel for most sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    opacity: 0; /* For reveal animation */
+    transform: translateY(30px); /* For reveal animation */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.section-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 40px;
-    color: var(--color-accent);
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section-divider {
     height: 1px;
-    background-color: var(--color-divider);
-    margin: 30px 0;
-    opacity: 0.5;
+    background: linear-gradient(to right, transparent, rgba(199, 181, 140, 0.2), transparent);
 }
 
-/* ======================================== */
-/* 3. PROFILE / ABOUT SECTION */
-/* ======================================== */
-
-.profile-intro-section {
-    display: flex;
-    gap: 40px;
-    padding-top: 20px;
-}
-
-.profile-sidebar {
-    flex: 0 0 300px; /* Fixed width for sidebar */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 40px;
     text-align: center;
-    padding: 20px;
-    background-color: var(--color-background-secondary);
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/*
+    -----------------------------------------------------------------------
+    Profile/Intro Section (Two Column Grid)
+    -----------------------------------------------------------------------
+*/
+.profile-intro-section {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 80px;
+    align-items: center;
+    padding-top: 100px;
+}
+
+/* Profile Sidebar Styling (Left) */
+.profile-sidebar {
+    background-color: var(--color-background-offset);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--color-shadow);
+    text-align: center;
 }
 
 .profile-image-container {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 20px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid var(--color-accent);
-}
-
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border: 8px solid var(--color-primary);
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .profile-name {
-    font-size: 2rem;
-    margin: 10px 0 5px;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 5px;
 }
 
 .profile-title {
     font-size: 1.2rem;
-    color: var(--color-accent);
-    margin-bottom: 10px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--color-primary);
 }
 
 .profile-subtitle {
-    color: var(--color-text-secondary);
-    font-style: italic;
-    margin-bottom: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
-.contact-details-horizontal p {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
+.contact-details-horizontal {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(199, 181, 140, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     text-align: left;
+    font-size: 0.95rem;
+}
+
+.contact-details-horizontal a {
+    color: var(--color-secondary);
+    border-bottom: 1px dotted var(--color-primary);
+}
+
+.contact-details-horizontal a:hover {
+    color: var(--color-primary);
 }
 
 .contact-details-horizontal i {
-    color: var(--color-accent);
-    margin-right: 10px;
+    color: var(--color-primary);
+    margin-right: 8px;
 }
 
-.cv-download-link {
-    display: block;
-    padding: 12px 25px;
-    background-color: var(--color-accent);
-    color: var(--color-background-primary);
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 30px;
-    transition: background-color 0.3s ease;
-}
 
-.cv-download-link:hover {
-    background-color: #00a8b9;
-}
-
-.info-area {
-    flex-grow: 1;
+/* Highlights Grid (Right) */
+.profile-info-area {
+    padding: 0;
 }
 
 .highlights-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.highlight-card {
-    background-color: var(--color-background-secondary);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-left: 5px solid var(--color-accent);
-}
-
-.highlight-card i {
-    font-size: 1.8rem;
-    color: var(--color-accent);
-    margin-bottom: 10px;
-}
-
-.highlight-card h5 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-}
-
-/* ======================================== */
-/* 4. EXPERTISE & SKILLS */
-/* ======================================== */
-
-.expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
-.expertise-column {
-    background-color: var(--color-background-secondary);
-    padding: 25px;
+.highlight-card {
+    background: var(--color-background-offset);
+    padding: 30px;
     border-radius: 8px;
+    border-left: 5px solid var(--color-primary);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.highlight-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px var(--color-shadow);
+    background: var(--color-hover-bg);
+}
+
+.highlight-card i {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.highlight-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+/*
+    -----------------------------------------------------------------------
+    EXPERTISE Section (3-Column Table/Badge Layout)
+    -----------------------------------------------------------------------
+*/
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.expertise-column {
+    background-color: var(--color-background-offset);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--color-shadow);
 }
 
 .column-title {
-    font-size: 1.5rem;
-    color: var(--color-accent);
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--color-divider);
-    padding-bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 12px;
+    text-align: center;
 }
 
 .skills-badges {
-    list-style: none; /* Removed list dots for ul/li */
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-direction: column; /* Stack badges vertically */
+    gap: 12px;
+    align-items: flex-start; /* **Crucial for left alignment** */
 }
 
 .badge {
-    display: inline-block;
-    background-color: var(--color-badge);
-    color: var(--color-text-primary);
-    padding: 5px 12px;
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+    padding: 8px 15px;
     border-radius: 20px;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    width: auto; /* Allow badges to size naturally */
+    text-align: left;
 }
 
-/* ======================================== */
-/* 5. TOOLS STACK */
-/* ======================================== */
+.badge:hover {
+    background-color: #ffffff;
+    transform: translateX(5px);
+}
 
+/*
+    -----------------------------------------------------------------------
+    TOOLS Section (Original Color Icons)
+    -----------------------------------------------------------------------
+*/
 .tool-subtext {
     text-align: center;
-    color: var(--color-text-secondary);
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    color: var(--color-secondary);
+    font-style: italic;
 }
 
 .tools-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px;
 }
 
 .tool-category {
-    background-color: var(--color-background-secondary);
-    padding: 25px;
-    border-radius: 8px;
+    background-color: var(--color-background-offset);
+    padding: 30px;
+    border-radius: 10px;
     text-align: center;
 }
 
 .tool-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-primary);
     margin-bottom: 20px;
-    color: var(--color-text-primary);
 }
 
 .tool-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 25px;
 }
 
 .tool-list img {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
-    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4)); /* Subtle shadow for 3D effect */
+    transition: transform var(--transition-speed);
+    cursor: pointer;
 }
 
-/* Custom icons for MIS */
-.excel-icon { color: #217346; font-size: 2rem; }
-.outlook-icon { color: #0078D4; font-size: 2rem; }
-.code-icon { color: var(--color-accent); font-size: 2rem; }
+.tool-list i {
+    font-size: 40px;
+    transition: transform var(--transition-speed);
+    cursor: pointer;
+}
 
-/* ======================================== */
-/* 6. PROJECTS & GALLERY */
-/* ======================================== */
+.tool-list img:hover, .tool-list i:hover {
+    transform: scale(1.15);
+}
 
+/* Specific Font Awesome Icons Color */
+.excel-icon { color: #217346; } /* Microsoft Excel Green */
+.outlook-icon { color: #0078D4; } /* Microsoft Outlook Blue */
+.code-icon { color: var(--color-primary); } /* Gold for VBA/Code */
+
+
+/*
+    -----------------------------------------------------------------------
+    PROJECTS Section
+    -----------------------------------------------------------------------
+*/
 .project-category {
     margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .category-title {
-    font-size: 1.7rem;
-    color: var(--color-accent);
-    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--color-primary);
+    text-align: center;
 }
 
 .main-project-card {
-    background-color: var(--color-background-secondary);
+    background: var(--color-background-offset);
     padding: 30px;
-    border-radius: 8px;
-    border-left: 6px solid var(--color-accent);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px var(--color-shadow);
 }
 
 .project-intro {
     margin-bottom: 20px;
-    color: var(--color-text-secondary);
+    font-size: 1.05rem;
 }
 
 .project-link {
+    font-size: 1.1rem;
     font-weight: 600;
-    text-transform: uppercase;
+    display: inline-block;
+    color: var(--color-primary);
+    padding: 10px 20px;
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    transition: background-color var(--transition-speed);
+}
+
+.project-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+}
+
+.project-link i {
+    margin-left: 8px;
 }
 
 .project-subtext {
     text-align: center;
-    color: var(--color-text-secondary);
     margin-bottom: 30px;
+    font-style: italic;
+    color: var(--color-secondary);
 }
 
+/* SEO Gallery Grid */
 .seo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .gallery-item {
-    background-color: var(--color-background-secondary);
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px var(--color-shadow);
+    transition: transform 0.4s ease-in-out, opacity 0.4s;
+    background: var(--color-background-offset);
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
 }
 
 .hd-image {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    display: block;
 }
 
-.hd-image:hover {
-    transform: scale(1.05);
-}
-
-.full-width-item {
-    grid-column: 1 / -1; /* Spans all columns */
-}
-
-/* Modal Styling (for IAMS) */
+/* Modal for IAMS Workflow (unchanged) */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed; 
-    z-index: 2000;
+    z-index: 2000; 
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; 
+    height: 100%; 
     overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.modal[aria-modal="true"] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: rgba(0,0,0,0.95); 
 }
 
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    width: 90%;
+    max-width: 1200px;
     animation-name: zoom;
     animation-duration: 0.6s;
 }
 
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
-
 .close-button {
     position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
+    top: 20px;
+    right: 45px;
+    color: var(--color-primary);
+    font-size: 50px;
     font-weight: bold;
     transition: 0.3s;
-    background: none;
-    border: none;
-    cursor: pointer;
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: #bbb;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-/* ======================================== */
-/* 7. CONTACT & FOOTER */
-/* ======================================== */
 
+/*
+    -----------------------------------------------------------------------
+    CONTACT Section
+    -----------------------------------------------------------------------
+*/
 .contact-card {
+    background: var(--color-primary);
+    color: var(--color-text-dark);
+    padding: 40px;
+    border-radius: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    background-color: var(--color-background-secondary);
-    padding: 30px 50px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(199, 181, 140, 0.3);
 }
 
 .contact-info p {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.contact-info strong {
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-right: 5px;
+}
+
+.contact-info a {
+    color: var(--color-text-dark);
+    border-bottom: 1px dashed var(--color-text-dark);
+}
+
+.contact-info a:hover {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
 }
 
 .contact-info i {
-    color: var(--color-accent);
-    margin-right: 10px;
+    margin-right: 8px;
+    color: var(--color-text-dark);
 }
 
 .social-media a {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-left: 20px;
-    color: var(--color-text-secondary);
+    color: var(--color-text-dark);
+    transition: color var(--transition-speed), transform var(--transition-speed);
 }
 
 .social-media a:hover {
-    color: var(--color-accent);
+    color: #ffffff;
+    transform: scale(1.1);
 }
 
+
+/*
+    -----------------------------------------------------------------------
+    Footer
+    -----------------------------------------------------------------------
+*/
 .footer {
     text-align: center;
-    padding: 20px;
-    border-top: 1px solid var(--color-divider);
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
-    margin-top: 40px;
+    padding: 25px;
+    font-size: 0.85rem;
+    color: #555;
+    background-color: var(--color-background-offset);
 }
 
-/* ======================================== */
-/* 8. RESPONSIVENESS (Basic Mobile First) */
-/* ======================================== */
+/*
+    -----------------------------------------------------------------------
+    Responsiveness
+    -----------------------------------------------------------------------
+*/
+
+@media (max-width: 1200px) {
+    .profile-intro-section {
+        grid-template-columns: 1fr; /* Stack on smaller wide screens */
+        padding-top: 50px;
+    }
+
+    .profile-sidebar {
+        margin: 0 auto;
+        max-width: 450px;
+    }
+    
+    .profile-info-area {
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .highlights-grid {
+        justify-content: center;
+    }
+}
 
 @media (max-width: 992px) {
-    .expertise-grid,
-    .tools-grid {
-        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    .section-title {
+        font-size: 2.5rem;
     }
     
-    .profile-intro-section {
-        flex-direction: column;
-        text-align: center;
+    .expertise-grid, .tools-grid {
+        grid-template-columns: 1fr; /* Stack expertise and tools columns */
     }
     
-    .profile-sidebar {
-        flex: 1;
-        width: 100%;
+    .expertise-column {
+        max-width: 80%;
+        margin: 0 auto;
     }
-    
-    .contact-details-horizontal p {
-        text-align: center;
+
+    .skills-badges {
+        align-items: center; /* Center badges when columns are stacked */
     }
-    
+
+    .header {
+        padding: 20px 20px;
+        justify-content: center;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
     .contact-card {
         flex-direction: column;
         gap: 30px;
-        padding: 30px;
+        align-items: flex-start;
     }
 
     .social-media {
-        display: flex;
-        justify-content: center;
         width: 100%;
+        text-align: center;
     }
 }
 
 @media (max-width: 600px) {
-    .header {
-        padding: 10px 20px;
-    }
-    
-    .main-content {
-        /* Adjust padding for smaller header height on mobile */
-        padding-top: 60px; 
-    }
-    
-    .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        height: auto;
+    .section {
+        padding: 40px 5vw;
     }
 
-    .nav-link, .social-header-right {
-        margin-top: 10px;
+    .profile-name {
+        font-size: 2rem;
     }
 
-    .highlights-grid {
-        grid-template-columns: 1fr;
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .contact-details-horizontal {
+        text-align: center;
+        align-items: center;
+    }
+
+    .profile-sidebar {
+        padding: 20px;
+    }
+    
+    .profile-image-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .badge {
+        font-size: 0.8rem;
+    }
+    
+    .tool-list img, .tool-list i {
+        width: 38px;
+        height: 38px;
+        font-size: 30px;
     }
 }
