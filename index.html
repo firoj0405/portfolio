@@ -1,110 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firoj Mulla | Full-Stack Operations Specialist Portfolio</title>
-    <meta name="description" content="Portfolio of Firoj Mulla — Full-Stack Operations Specialist skilled in e-commerce, MIS, automation, and software testing.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Firoj Mulla – Full-Stack Operations Specialist (E-commerce • MIS • QA)</title>
+  <meta name="description" content="Portfolio of Firoj Mulla — Full-Stack Operations Specialist skilled in e-commerce growth, MIS automation, and software testing (QA).">
+  <link rel="icon" href="favicon.ico">
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Fonts (swap for better performance) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome (deferred icons used sparingly, fallback to inline SVG where possible) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin>
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="header">
-        <nav class="nav">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#expertise" class="nav-link">Expertise</a>
-            <a href="#tools" class="nav-link">Tools</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#seo-projects" class="nav-link">SEO</a>
-            <a href="#contact" class="nav-link">Contact</a>
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#about" aria-label="Firoj Mulla homepage">Firoj Mulla</a>
 
-            <div class="social-header-right">
-                <a href="https://www.linkedin.com/in/firoj-mulla-9ab5a3158/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/firojmulla" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/@aikevideo" target="_blank" style="color:#FF0000;"><i class="fab fa-youtube"></i></a>
-            </div>
-        </nav>
-    </header>
+      <nav class="nav" role="navigation" aria-label="Primary">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">
+          <span class="hamburger"></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <ul id="primaryNav" class="nav-list">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#expertise">Expertise</a></li>
+          <li><a class="nav-link" href="#tools">Tools</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#seo-projects">SEO</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-    <main class="main-content">
-
-        <section id="about" class="section reveal">
-            <div class="profile-sidebar">
-                <div class="profile-image-container">
-                    <img src="profile-placeholder.jpg" alt="Profile Image" class="profile-image clickable-image">
-                </div>
-                <h1 class="profile-name">Firoj Mulla</h1>
-                <h2 class="profile-title">Full-Stack Operations Specialist</h2>
-            </div>
-
-            <div class="info-area">
-                <a href="Firoj_Mulla_CV.pdf" download class="cv-download-link">
-                    <i class="fas fa-file-pdf"></i> Download CV
-                </a>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <section id="expertise" class="section full-page-section reveal">
-            <h3 class="section-title">Core Expertise & Skills</h3>
-            <!-- Existing content preserved -->
-        </section>
-
-        <div class="section-divider"></div>
-
-        <section id="seo-projects" class="section full-page-section reveal">
-            <h3 class="section-title">📈 SEO Projects Gallery</h3>
-            <p class="project-subtext">SEO strategy implementation, audits & ranking improvements.</p>
-
-            <div class="seo-gallery">
-
-                <div class="gallery-item">
-                    <img src="seo-image-1.jpg" alt="SEO Project 1" class="hd-image clickable-image" loading="lazy">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="seo-image-2.jpg" alt="SEO Project 2" class="hd-image clickable-image" loading="lazy">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="seo-image-3.jpg" alt="SEO Project 3" class="hd-image clickable-image" loading="lazy">
-                </div>
-
-                <div class="gallery-item">
-                    <img src="seo-image-4.jpg" alt="SEO Project 4" class="hd-image clickable-image" loading="lazy">
-                </div>
-
-                <!-- ⭐ NEW IMAGE INSERTED BELOW ⭐ -->
-                <div class="gallery-item">
-                    <img src="Location wise Views Screenshot 2025-10-24 231732.png" 
-                         alt="Location Wise Views Screenshot" 
-                         class="hd-image clickable-image" loading="lazy">
-                </div>
-
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <section id="contact" class="section full-page-section reveal">
-            <h3 class="section-title">✉️ Get In Touch</h3>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <p>&copy; 2025 Firoj Mulla. Designed with performance in mind.</p>
-    </footer>
-
-    <!-- GLOBAL IMAGE MODAL VIEWER -->
-    <div id="globalImageModal" class="global-modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-image" id="modalImageDisplay">
+      <div class="socials" aria-hidden="false">
+        <a href="https://www.linkedin.com/in/firoj-mulla-9ab5a3158/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
+        <a href="https://twitter.com/firojmulla" target="_blank" rel="noopener noreferrer" title="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Twitter</span></a>
+        <a href="https://www.youtube.com/@aikevideo" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i><span class="sr-only">YouTube</span></a>
+      </div>
     </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main id="main" class="main" role="main">
+    <section id="about" class="section about-section">
+      <div class="container about-grid">
+        <aside class="profile-sidebar" aria-labelledby="profile-name">
+          <div class="profile-image-wrap">
+            <img class="profile-image clickable-image"
+                 src="profile-placeholder.jpg"
+                 alt="Portrait of Firoj Mulla"
+                 loading="lazy"
+                 data-full="profile-placeholder.jpg">
+          </div>
+          <h1 id="profile-name" class="profile-name">Firoj Mulla</h1>
+          <p class="profile-title">Full-Stack Operations Specialist</p>
+
+          <div class="contact-details">
+            <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+919876543210">+91 987 654 3210</a></p>
+            <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:firoj.mulla@example.com">firoj.mulla@example.com</a></p>
+            <p><strong><i class="fas fa-map-marker-alt" aria-hidden="true"></i></strong> Pune, India</p>
+          </div>
+
+          <a href="Firoj_Mulla_CV.pdf" class="btn btn-outline" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Download CV</a>
+        </aside>
+
+        <div class="profile-info">
+          <h2 class="section-title">About & Key Highlights</h2>
+          <p class="lead">Ecommerce Manager, MIS Executive, Software Testing (QA) across IT & B2B industries — focused on ROI-driven growth and automation.</p>
+
+          <div class="highlights-grid" role="list">
+            <article class="card highlight" role="listitem">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+              <h3>E-commerce Growth</h3>
+              <p>ROI-based Meta/Google Ads, SEO and product listing strategies to boost visibility and sales.</p>
+            </article>
+
+            <article class="card highlight" role="listitem">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
+              <h3>MIS & Automation</h3>
+              <p>Advanced Excel, VBA automation, accurate data analysis and reporting for decision-making.</p>
+            </article>
+
+            <article class="card highlight" role="listitem">
+              <i class="fas fa-bug" aria-hidden="true"></i>
+              <h3>Quality Assurance</h3>
+              <p>STLC expertise including UAT, Regression, Exploratory testing, JIRA and Postman workflows.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="expertise" class="section">
+      <div class="container">
+        <h2 class="section-title">Core Expertise & Skills</h2>
+        <div class="expertise-grid">
+          <div class="expertise-column">
+            <h3>🛍️ E-commerce Management</h3>
+            <p class="small">Product Listing • Meta Ads • Google Ads • SEO • Analytics • Shopify / WooCommerce • Marketplaces</p>
+          </div>
+          <div class="expertise-column">
+            <h3>📊 MIS Executive</h3>
+            <p class="small">Advanced Excel • VBA • Data Management • BI Tools • ERP Integration</p>
+          </div>
+          <div class="expertise-column">
+            <h3>🧪 Software Testing / QA</h3>
+            <p class="small">STLC • Test Case Design • JIRA • JMeter • MySQL • Agile-Scrum</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="tools" class="section">
+      <div class="container">
+        <h2 class="section-title">🛠️ Professional Tool Stack</h2>
+        <div class="tools-grid">
+          <div class="tool-card"><img src="https://www.google.com/s2/favicons?domain=shopify.com&sz=64" alt="Shopify" loading="lazy"><span>Shopify</span></div>
+          <div class="tool-card"><img src="https://www.google.com/s2/favicons?domain=ads.google.com&sz=64" alt="Google Ads" loading="lazy"><span>Google Ads</span></div>
+          <div class="tool-card"><img src="https://www.google.com/s2/favicons?domain=analytics.google.com&sz=64" alt="Google Analytics" loading="lazy"><span>Google Analytics</span></div>
+          <div class="tool-card"><i class="fas fa-file-excel excel-icon" aria-hidden="true"></i><span>Advanced Excel</span></div>
+          <div class="tool-card"><img src="https://www.google.com/s2/favicons?domain=atlassian.com&sz=64" alt="JIRA" loading="lazy"><span>JIRA</span></div>
+          <div class="tool-card"><img src="https://www.google.com/s2/favicons?domain=postman.com&sz=64" alt="Postman" loading="lazy"><span>Postman</span></div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">🚀 Featured Projects</h2>
+
+        <div class="project">
+          <h3>Main Project – Internal Audit Management System (IAMS)</h3>
+          <p>Built on MetricStream platform for audit lifecycle: planning, execution, reporting, issue tracking & closure.</p>
+          <a href="#" id="iams-link" class="project-link">View IAMS Workflow Diagram</a>
+        </div>
+
+        <!-- legacy modal for IAMS image (kept but won't collide with global viewer) -->
+        <div id="iams-modal" class="legacy-modal" aria-hidden="true">
+          <button class="legacy-close" aria-label="Close">×</button>
+          <img src="workflow-placeholder.jpg" alt="IAMS Workflow Diagram" loading="lazy">
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="seo-projects" class="section">
+      <div class="container">
+        <h2 class="section-title">📈 SEO Projects Gallery</h2>
+        <p class="small">Visual examples showcasing SEO strategy implementation and technical audit findings.</p>
+
+        <div class="seo-gallery" id="seoGallery">
+          <figure class="gallery-item">
+            <img class="gallery-thumb clickable-image" src="seo-image-1.jpg" alt="SEO Project snapshot 1" loading="lazy" data-full="seo-image-1.jpg">
+            <figcaption>SEO Project 1</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img class="gallery-thumb clickable-image" src="seo-image-2.jpg" alt="SEO Project snapshot 2" loading="lazy" data-full="seo-image-2.jpg">
+            <figcaption>SEO Project 2</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img class="gallery-thumb clickable-image" src="seo-image-3.jpg" alt="SEO Project snapshot 3" loading="lazy" data-full="seo-image-3.jpg">
+            <figcaption>SEO Project 3</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img class="gallery-thumb clickable-image" src="seo-image-4.jpg" alt="SEO Project snapshot 4" loading="lazy" data-full="seo-image-4.jpg">
+            <figcaption>SEO Project 4</figcaption>
+          </figure>
+
+          <!-- NEW SEO IMAGE you asked for: space-safe file name encoded for browsers -->
+          <figure class="gallery-item">
+            <img class="gallery-thumb clickable-image"
+                 src="Location%20wise%20Views%20Screenshot%202025-10-24%20231732.png"
+                 alt="Location wise views screenshot"
+                 loading="lazy"
+                 data-full="Location%20wise%20Views%20Screenshot%202025-10-24%20231732.png">
+            <figcaption>Location wise views (2025-10-24)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="certification" class="section">
+      <div class="container">
+        <h2 class="section-title">🏅 Certifications</h2>
+        <div class="cert-grid">
+          <img src="certification-placeholder-1.jpg" alt="Certification 1" loading="lazy">
+          <img src="certification-placeholder-2.jpg" alt="Certification 2" loading="lazy">
+          <img src="certification-placeholder-3.jpg" alt="Certification 3" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="awards" class="section">
+      <div class="container">
+        <h2 class="section-title">🏆 Awards & Recognition</h2>
+        <div class="awards-grid">
+          <img src="awards-placeholder-1.jpg" alt="Award" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="contact" class="section contact-section">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title">✉️ Get in touch</h2>
+          <p class="small">Email: <a href="mailto:firoj.mulla@example.com">firoj.mulla@example.com</a> • Phone: <a href="tel:+919876543210">+91 987 654 3210</a></p>
+        </div>
+
+        <div class="socials contact-socials">
+          <a href="https://www.linkedin.com/in/firoj-mulla-9ab5a3158/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/firojmulla" target="_blank" rel="noopener noreferrer" title="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/@aikevideo" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>© 2025 Firoj Mulla — Engineered for performance and clarity.</p>
+    </div>
+  </footer>
+
+  <!-- GLOBAL IMAGE VIEWER (accessible) -->
+  <div id="imageViewer" class="image-viewer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image preview">
+    <button id="viewerClose" class="viewer-close" aria-label="Close image viewer">×</button>
+    <button id="viewerPrev" class="viewer-nav viewer-prev" aria-label="Previous image" title="Previous (←)">‹</button>
+    <img id="viewerImg" class="viewer-img" alt="">
+    <button id="viewerNext" class="viewer-nav viewer-next" aria-label="Next image" title="Next (→)">›</button>
+  </div>
+
+  <!-- Scripts: defer to allow parsing and reduce render-blocking -->
+  <script defer src="script.js"></script>
 </body>
 </html>
